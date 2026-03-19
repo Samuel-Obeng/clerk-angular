@@ -1,22 +1,21 @@
 {
-  "name": "@anthropic/clerk-angular",
-  "version": "0.0.1",
+  "name": "clerk-angular-workspace",
+  "version": "0.0.0",
+  "private": true,
   "description": "Angular SDK for Clerk authentication",
   "license": "MIT",
   "scripts": {
-    "build": "ng-packagr -p ng-package.json",
-    "watch": "ng-packagr -p ng-package.json --watch"
-  },
-  "peerDependencies": {
-    "@angular/core": ">=17.0.0",
-    "@angular/common": ">=17.0.0",
-    "@angular/router": ">=17.0.0"
+    "build": "ng build clerk-angular",
+    "watch": "ng build clerk-angular --watch"
   },
   "dependencies": {
     "@clerk/shared": "^4.0.0",
-    "@clerk/types": "^4.0.0"
+    "@clerk/types": "^4.0.0",
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^19.0.0",
+    "@angular/cli": "^19.0.0",
     "@angular/compiler": "^19.0.0",
     "@angular/compiler-cli": "^19.0.0",
     "@angular/core": "^19.0.0",
@@ -28,6 +27,5 @@
     "rxjs": "^7.8.0",
     "typescript": "~5.6.0",
     "zone.js": "~0.15.0"
-  },
-  "sideEffects": false
+  }
 }

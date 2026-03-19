@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "cli": {
+    "packageManager": "npm"
+  },
+  "newProjectRoot": "projects",
+  "projects": {
+    "clerk-angular": {
+      "projectType": "library",
+      "root": "projects/clerk-angular",
+      "sourceRoot": "projects/clerk-angular/src",
+      "prefix": "clerk",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/clerk-angular/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/clerk-angular/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/clerk-angular/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        }
+      }
+    }
+  }
+}
