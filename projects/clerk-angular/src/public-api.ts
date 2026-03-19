@@ -22,3 +22,8 @@ export { ClerkLoadedComponent } from './lib/components/control/clerk-loaded.comp
 export { ClerkLoadingComponent } from './lib/components/control/clerk-loading.component';
 export { SignedInComponent } from './lib/components/control/signed-in.component';
 export { SignedOutComponent } from './lib/components/control/signed-out.component';
+
+// Button Components
+export { SignInButtonComponent } from './lib/components/buttons/sign-in-button.component';
+export { SignUpButtonComponent } from './lib/components/buttons/sign-up-button.component';
+export { SignOutButtonComponent } from './lib/components/buttons/sign-out-button.component';
