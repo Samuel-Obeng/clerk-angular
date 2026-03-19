@@ -30,3 +30,6 @@ export { SignOutButtonComponent } from './lib/components/buttons/sign-out-button
 
 // Guards
 export { clerkAuthGuard, type ClerkAuthGuardOptions } from './lib/guards/clerk-auth.guard';
+
+// Interceptors
+export { clerkTokenInterceptor } from './lib/interceptors/clerk-token.interceptor';
