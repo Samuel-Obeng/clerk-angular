@@ -1,0 +1,31 @@
+# Plan
+PLAN.md
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+tmp/
+out-tsc/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Angular cache
+.angular/
+
+# Environment files
+.env
+.env.local
+
+# Coverage
+coverage/
