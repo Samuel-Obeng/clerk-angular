@@ -16,3 +16,9 @@ export { SignInComponent } from './lib/components/ui/sign-in.component';
 export { SignUpComponent } from './lib/components/ui/sign-up.component';
 export { UserButtonComponent } from './lib/components/ui/user-button.component';
 export { UserProfileComponent } from './lib/components/ui/user-profile.component';
+
+// Control Components
+export { ClerkLoadedComponent } from './lib/components/control/clerk-loaded.component';
+export { ClerkLoadingComponent } from './lib/components/control/clerk-loading.component';
+export { SignedInComponent } from './lib/components/control/signed-in.component';
+export { SignedOutComponent } from './lib/components/control/signed-out.component';
