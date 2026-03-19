@@ -16,6 +16,13 @@ export { SignInComponent } from './lib/components/ui/sign-in.component';
 export { SignUpComponent } from './lib/components/ui/sign-up.component';
 export { UserButtonComponent } from './lib/components/ui/user-button.component';
 export { UserProfileComponent } from './lib/components/ui/user-profile.component';
+export { OrganizationSwitcherComponent } from './lib/components/ui/organization-switcher.component';
+export { OrganizationProfileComponent } from './lib/components/ui/organization-profile.component';
+export { OrganizationListComponent } from './lib/components/ui/organization-list.component';
+export { CreateOrganizationComponent } from './lib/components/ui/create-organization.component';
+export { GoogleOneTapComponent } from './lib/components/ui/google-one-tap.component';
+export { WaitlistComponent } from './lib/components/ui/waitlist.component';
+export { PricingTableComponent } from './lib/components/ui/pricing-table.component';
 
 // Control Components
 export { ClerkLoadedComponent } from './lib/components/control/clerk-loaded.component';
