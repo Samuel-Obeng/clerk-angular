@@ -27,3 +27,6 @@ export { SignedOutComponent } from './lib/components/control/signed-out.componen
 export { SignInButtonComponent } from './lib/components/buttons/sign-in-button.component';
 export { SignUpButtonComponent } from './lib/components/buttons/sign-up-button.component';
 export { SignOutButtonComponent } from './lib/components/buttons/sign-out-button.component';
+
+// Guards
+export { clerkAuthGuard, type ClerkAuthGuardOptions } from './lib/guards/clerk-auth.guard';
