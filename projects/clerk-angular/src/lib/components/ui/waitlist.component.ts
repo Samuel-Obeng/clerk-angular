@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ClerkPortalComponent } from './clerk-portal.component';
 
+/** Renders the Clerk waitlist sign-up form. Selector: `<clerk-waitlist>`. */
 @Component({
   selector: 'clerk-waitlist',
   standalone: true,

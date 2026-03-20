@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ClerkService } from '../../clerk.service';
 
+/** Renders its content only when the user is signed in. Selector: `<clerk-signed-in>`. */
 @Component({
   selector: 'clerk-signed-in',
   standalone: true,

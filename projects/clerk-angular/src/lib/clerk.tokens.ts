@@ -1,5 +1,6 @@
 import { InjectionToken } from '@angular/core';
 
+/** Configuration options passed to {@link provideClerk}. */
 export interface ClerkProviderOptions {
   publishableKey: string;
   initialState?: unknown;
@@ -27,4 +28,5 @@ export interface ClerkProviderOptions {
   nonce?: string;
 }
 
+/** Injection token for Clerk configuration. Provided automatically by {@link provideClerk}. */
 export const CLERK_OPTIONS = new InjectionToken<ClerkProviderOptions>('CLERK_OPTIONS');

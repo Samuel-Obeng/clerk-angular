@@ -40,3 +40,7 @@ export { clerkAuthGuard, type ClerkAuthGuardOptions } from './lib/guards/clerk-a
 
 // Interceptors
 export { clerkTokenInterceptor } from './lib/interceptors/clerk-token.interceptor';
+
+// Themes
+export { createClerkTheme, type ClerkThemeOptions } from './lib/themes';
+export { clerkDarkTheme, clerkMinimalTheme } from './lib/themes';

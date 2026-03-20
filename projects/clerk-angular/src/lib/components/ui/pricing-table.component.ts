@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ClerkPortalComponent } from './clerk-portal.component';
 
+/** Renders the Clerk pricing table. Selector: `<clerk-pricing-table>`. */
 @Component({
   selector: 'clerk-pricing-table',
   standalone: true,

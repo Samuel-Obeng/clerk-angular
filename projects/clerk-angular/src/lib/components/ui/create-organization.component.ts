@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ClerkPortalComponent } from './clerk-portal.component';
 
+/** Renders the Clerk create-organization form. Selector: `<clerk-create-organization>`. */
 @Component({
   selector: 'clerk-create-organization',
   standalone: true,

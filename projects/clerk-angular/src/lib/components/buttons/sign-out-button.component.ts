@@ -1,6 +1,7 @@
 import { Component, Input, inject } from '@angular/core';
 import { ClerkService } from '../../clerk.service';
 
+/** Button that signs the user out via {@link ClerkService.signOut}. Selector: `<clerk-sign-out-button>`. */
 @Component({
   selector: 'clerk-sign-out-button',
   standalone: true,

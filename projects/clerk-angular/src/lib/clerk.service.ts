@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
-import { loadClerkJSScript } from '@clerk/shared/loadClerkJsScript';
+import { loadClerkJSScript, loadClerkUIScript } from '@clerk/shared/loadClerkJsScript';
 import { deriveState } from '@clerk/shared/deriveState';
 import type {
   ClientResource,
@@ -26,6 +26,14 @@ interface ClerkResources {
   organization: OrganizationResource | null | undefined;
 }
 
+/**
+ * Core service that manages the Clerk instance lifecycle and exposes
+ * authentication state as Angular signals.
+ *
+ * Prefer the shorthand inject helpers ({@link injectAuth}, {@link injectUser}, etc.)
+ * for reading state in components. Use this service directly when you need
+ * methods like {@link getToken}, {@link signOut}, or {@link openSignIn}.
+ */
 @Injectable()
 export class ClerkService {
   private readonly options = inject(CLERK_OPTIONS);
@@ -72,6 +80,7 @@ export class ClerkService {
   readonly isSignedIn = computed(() => !!this.auth().userId);
   readonly isLoaded = this.loaded;
 
+  /** Loads the Clerk JS scripts and initialises the Clerk instance. Called automatically by `APP_INITIALIZER`. */
   async init(): Promise<void> {
     if (!isPlatformBrowser(this.platformId)) {
       return;
@@ -79,7 +88,7 @@ export class ClerkService {
 
     const { publishableKey, clerkJSUrl, clerkJSVersion, proxyUrl, domain, nonce } = this.options;
 
-    await loadClerkJSScript({
+    const scriptOpts: any = {
       publishableKey,
       __internal_clerkJSUrl: clerkJSUrl,
       __internal_clerkJSVersion: clerkJSVersion,
@@ -90,7 +99,13 @@ export class ClerkService {
         name: 'clerk-angular',
         version: '0.0.1',
       },
-    });
+    };
+
+    // Load both Clerk JS (headless) and Clerk UI (components) scripts
+    await Promise.all([
+      loadClerkJSScript(scriptOpts),
+      loadClerkUIScript(scriptOpts),
+    ]);
 
     const clerkInstance = (window as any).Clerk;
     if (!clerkInstance) {
@@ -98,6 +113,9 @@ export class ClerkService {
     }
 
     this._clerk.set(clerkInstance);
+
+    // Pass the UI constructor to clerk.load() so mount methods work
+    const ClerkUICtor = (window as any).__internal_ClerkUICtor;
 
     await clerkInstance.load({
       appearance: this.options.appearance,
@@ -118,6 +136,7 @@ export class ClerkService {
       },
       routerPush: (to: string) => this.navigateTo(to),
       routerReplace: (to: string) => this.navigateTo(to, true),
+      ...(ClerkUICtor ? { ui: { ClerkUI: ClerkUICtor } } : {}),
     });
 
     this._loaded.set(true);
@@ -132,34 +151,41 @@ export class ClerkService {
     });
   }
 
+  /** Returns a session token, or `null` if no active session exists. */
   async getToken(options?: { template?: string; leewayInSeconds?: number }): Promise<string | null> {
     const session = this.session();
     if (!session) return null;
     return (session as any).getToken(options);
   }
 
+  /** Signs the user out and optionally redirects. */
   async signOut(options?: { redirectUrl?: string; sessionId?: string }): Promise<void> {
     const clerk = this._clerk();
     if (!clerk) return;
     await clerk.signOut(options);
   }
 
+  /** Opens the Clerk sign-in modal. */
   openSignIn(props?: Record<string, unknown>): void {
     this._clerk()?.openSignIn(props);
   }
 
+  /** Opens the Clerk sign-up modal. */
   openSignUp(props?: Record<string, unknown>): void {
     this._clerk()?.openSignUp(props);
   }
 
+  /** Opens the Clerk user profile modal. */
   openUserProfile(props?: Record<string, unknown>): void {
     this._clerk()?.openUserProfile(props);
   }
 
+  /** Opens the Clerk organization profile modal. */
   openOrganizationProfile(props?: Record<string, unknown>): void {
     this._clerk()?.openOrganizationProfile(props);
   }
 
+  /** Opens the Clerk create-organization modal. */
   openCreateOrganization(props?: Record<string, unknown>): void {
     this._clerk()?.openCreateOrganization(props);
   }

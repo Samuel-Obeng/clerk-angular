@@ -3,12 +3,26 @@ import { type CanActivateFn, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ClerkService } from '../clerk.service';
 
+/** Options for {@link clerkAuthGuard}. */
 export interface ClerkAuthGuardOptions {
   signInUrl?: string;
   orgRole?: string;
   orgPermission?: string;
 }
 
+/**
+ * Angular route guard that requires an authenticated Clerk session.
+ * Optionally checks for a specific organization role or permission.
+ *
+ * @example
+ * ```typescript
+ * {
+ *   path: 'dashboard',
+ *   canActivate: [clerkAuthGuard({ signInUrl: '/sign-in' })],
+ *   loadComponent: () => import('./dashboard.component'),
+ * }
+ * ```
+ */
 export const clerkAuthGuard = (options?: ClerkAuthGuardOptions): CanActivateFn => {
   return () => {
     const clerkService = inject(ClerkService);

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ClerkPortalComponent } from './clerk-portal.component';
 
+/** Renders the Clerk user button avatar with a dropdown menu. Selector: `<clerk-user-button>`. */
 @Component({
   selector: 'clerk-user-button',
   standalone: true,

@@ -1,6 +1,7 @@
 import { Component, Input, inject } from '@angular/core';
 import { ClerkService } from '../../clerk.service';
 
+/** Button that triggers the Clerk sign-in flow (modal or redirect). Selector: `<clerk-sign-in-button>`. */
 @Component({
   selector: 'clerk-sign-in-button',
   standalone: true,

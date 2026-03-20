@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ClerkPortalComponent } from './clerk-portal.component';
 
+/** Renders the Google One Tap sign-in prompt. Selector: `<clerk-google-one-tap>`. */
 @Component({
   selector: 'clerk-google-one-tap',
   standalone: true,

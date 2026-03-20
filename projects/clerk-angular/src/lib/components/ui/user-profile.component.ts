@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ClerkPortalComponent } from './clerk-portal.component';
 
+/** Renders the Clerk user profile management page. Selector: `<clerk-user-profile>`. */
 @Component({
   selector: 'clerk-user-profile',
   standalone: true,

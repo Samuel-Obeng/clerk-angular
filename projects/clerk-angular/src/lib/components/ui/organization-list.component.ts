@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ClerkPortalComponent } from './clerk-portal.component';
 
+/** Renders a list of organizations the user belongs to with management options. Selector: `<clerk-organization-list>`. */
 @Component({
   selector: 'clerk-organization-list',
   standalone: true,

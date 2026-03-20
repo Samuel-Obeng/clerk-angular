@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ClerkPortalComponent } from './clerk-portal.component';
 
+/** Renders the Clerk organization switcher dropdown. Selector: `<clerk-organization-switcher>`. */
 @Component({
   selector: 'clerk-organization-switcher',
   standalone: true,

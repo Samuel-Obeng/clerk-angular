@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ClerkPortalComponent } from './clerk-portal.component';
 
+/** Renders the Clerk Sign In form. Selector: `<clerk-sign-in>`. */
 @Component({
   selector: 'clerk-sign-in',
   standalone: true,

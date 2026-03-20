@@ -9,6 +9,13 @@ import {
 } from '@angular/core';
 import { ClerkService } from '../../clerk.service';
 
+/**
+ * Abstract base component for Clerk UI portals.
+ *
+ * Subclasses specify a `mountName` / `unmountName` pair and the Clerk JS
+ * component is mounted into a `<div>` once the Clerk instance is loaded.
+ * The component is automatically unmounted on destroy.
+ */
 @Component({
   selector: 'clerk-portal',
   standalone: true,
